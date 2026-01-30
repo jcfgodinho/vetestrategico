@@ -9,14 +9,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --color-primary: #223d8c; /* Dark Blue */
-            --color-primary-light: #2563eb; /* Cobalt Blue */
-            --color-accent: #3b82f6; /* Lighter Blue */
-            --color-text: #1f2937; /* Dark Gray */
-            --color-text-light: #6b7280; /* Medium Gray */
-            --color-bg-light: #f9fafb; /* Light Gray */
-            --color-bg-white: #ffffff; /* White */
-            --color-bg-blue-light: #e6f0ff; /* New light blue background */
+            --color-primary: #223d8c; /* Azul Escuro */
+            --color-primary-light: #2563eb; /* Azul Cobalto */
+            --color-accent: #3b82f6; /* Azul Mais Claro */
+            --color-text: #1f2937; /* Cinza Escuro */
+            --color-text-light: #6b7280; /* Cinza Médio */
+            --color-bg-light: #f9fafb; /* Cinza Muito Claro */
+            --color-bg-white: #ffffff; /* Branco */
+            --color-bg-blue-light: #e6f0ff; /* Fundo azul claro suave */
             --font-main: 'Poppins', sans-serif;
             --navbar-height: 80px;
         }
@@ -33,7 +33,7 @@
             overflow-x: hidden;
         }
 
-        /* --- Animations & Utilities --- */
+        /* --- Animações e Utilitários --- */
         .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
         .is-visible { opacity: 1; transform: translateY(0); }
         .hero-animation { opacity: 0; transform: translateY(30px); animation: hero-entrance 0.8s forwards cubic-bezier(0.25, 0.46, 0.45, 0.94); }
@@ -49,12 +49,12 @@
             font-weight: 700; 
             line-height: 1.2; 
             margin-top: 0;
-            color: var(--color-primary); /* Set title color directly */
+            color: var(--color-primary);
         }
         h1 { font-size: clamp(2.5rem, 6vw, 4rem); }
         h2 { font-size: clamp(2rem, 5vw, 3rem); text-align: center; margin-bottom: 48px; }
 
-        /* --- Navigation Bar --- */
+        /* --- Barra de Navegação --- */
         .navbar { 
             position: fixed; 
             top: 0; 
@@ -67,7 +67,7 @@
             height: var(--navbar-height);
         }
         .navbar-content { display: flex; justify-content: space-between; align-items: center; padding: 16px 24px; }
-        .nav-logo { font-size: 1.5rem; font-weight: 700; color: var(--color-primary); }
+        .nav-logo { font-size: 1.5rem; font-weight: 700; color: var(--color-primary); text-decoration: none; }
         .nav-links { display: none; }
         .nav-link { color: var(--color-text-light); text-decoration: none; font-weight: 500; padding: 8px 16px; transition: color 0.2s; }
         .nav-link:hover { color: var(--color-primary-light); }
@@ -75,7 +75,7 @@
             .nav-links { display: flex; gap: 24px; }
         }
 
-        /* --- Hero Section with Background Animation --- */
+        /* --- Seção Hero --- */
         @keyframes gradient-move {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -91,7 +91,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-sizing: border-box; /* Including padding in height calculation */
+            box-sizing: border-box;
         }
         .hero-content { 
             display: flex; 
@@ -105,7 +105,11 @@
             padding-bottom: 40px;
         }
         .hero-text { text-align: center; }
-        .hero-headline { margin-bottom: 16px; color: var(--color-primary); }
+        .hero-headline { 
+            margin-bottom: 16px; 
+            color: var(--color-primary); 
+            line-height: 1.1; /* Espaçamento entrelinhas reduzido */
+        }
         .hero-subheadline { font-size: 1.125rem; color: var(--color-text-light); max-width: 600px; margin: 0 auto 32px; }
         .hero-buttons { display: flex; flex-direction: column; gap: 16px; justify-content: center; }
         .hero-image { max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
@@ -114,7 +118,6 @@
             .hero-text { 
                 text-align: left; 
                 flex: 1;
-                /* Adjusting alignment for larger screens */
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -124,13 +127,13 @@
             .hero-image-container { flex: 1; max-width: 50%; display: block; }
         }
         
-        /* --- "O Problema" Section --- */
+        /* --- Secção "O Problema" --- */
         .problem-section { text-align: center; max-width: 800px; margin: 0 auto; }
         .problem-section h2 { color: var(--color-primary); }
         .problem-section p { font-size: 1.125rem; margin-bottom: 12px; }
         .problem-section .highlight { font-weight: 700; color: var(--color-primary-light); }
         
-        /* --- "A Solução" / "O Método" Section --- */
+        /* --- Secção "O Método" --- */
         .solution-section { text-align: center; max-width: 800px; margin: 0 auto; }
         .solution-section h2 { color: var(--color-primary); }
         .solution-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
@@ -146,7 +149,6 @@
         .solution-card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
         .solution-card h3 { font-size: 1.25rem; color: var(--color-primary); margin-bottom: 8px; }
         .solution-card p { font-size: 1rem; color: var(--color-text-light); }
-        .solution-card .check { color: #22c55e; margin-right: 8px; }
         @media (min-width: 640px) {
             .solution-grid { grid-template-columns: repeat(2, 1fr); }
         }
@@ -156,7 +158,6 @@
                 grid-template-rows: auto;
                 gap: 24px;
             }
-            /* Making the fourth card span two rows on desktop to balance the 4 cards */
             .solution-card:nth-child(4) {
                 grid-row: span 2;
                 display: flex;
@@ -164,82 +165,97 @@
                 justify-content: center;
             }
         }
-        /* Mobile layout for 4 cards */
-        @media (max-width: 1023px) {
-            .solution-card:nth-child(4) {
-                grid-row: auto;
-            }
-        }
 
-        /* --- Features Section (Cards) --- */
+        /* --- Secção "O que Você Recebe" --- */
         .features-grid { 
             display: grid; 
-            grid-template-columns: 1fr; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
             gap: 24px; 
+            margin-bottom: 48px; 
         }
-        /* The main card will span across all columns for consistency in the previous steps */
-        .feature-main { 
-            padding: 48px; 
-            background-color: var(--color-bg-light); 
-            border-radius: 12px; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
-            grid-column: 1 / -1; 
+        .feature-box { 
+            padding: 32px 24px; 
+            background-color: var(--color-bg-white); 
+            border-radius: 16px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
+            border: 1px solid #e5e7eb; 
+            text-align: center;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
-        .feature-card { padding: 24px; background-color: var(--color-bg-white); border-radius: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); border: 1px solid #e5e7eb; transition: transform 0.2s, box-shadow 0.2s; }
-        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
-        .feature-card h3 { font-size: 1.25rem; color: var(--color-primary); }
-        @media (min-width: 768px) {
-            .features-grid { grid-template-columns: repeat(2, 1fr); }
-            /* Adjusting remaining cards for the new layout (keeping previous grid structure where applicable) */
-            .feature-card { grid-column: auto; }
+        .feature-box:hover { 
+            transform: translateY(-8px); 
+            box-shadow: 0 12px 20px rgba(0,0,0,0.1);
+            border-color: var(--color-primary-light);
         }
-        @media (min-width: 1024px) {
-            .features-grid { grid-template-columns: 1fr 1fr 1fr; }
+        .feature-icon-wrapper {
+            width: 60px;
+            height: 60px;
+            background-color: var(--color-bg-blue-light);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--color-primary-light);
         }
+        .feature-box h3 { 
+            font-size: 1.1rem; 
+            color: var(--color-primary); 
+            margin: 0;
+            line-height: 1.4;
+        }
+        .section-cta-container { text-align: center; }
 
-
-        /* --- "Why Choose" Section (Pillars) --- */
+        /* --- Secção "Por que escolher" (Pilares) --- */
         .pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 48px; }
         .pillar { text-align: center; }
         .pillar h3 { font-size: 1.5rem; color: var(--color-primary); margin-bottom: 8px; }
         .pillar p { color: var(--color-text-light); }
         
-        /* --- Testimonials Section (New Layout) --- */
-        .testimonials-layout { 
+        /* --- Secção "Para Quem É" --- */
+        .for-whom-list {
+            list-style: none;
+            padding: 0;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .for-whom-item {
             display: flex;
-            flex-wrap: wrap; /* Allow images to wrap on smaller screens */
-            justify-content: center;
             align-items: center;
-            gap: 24px;
-            padding: 16px 0;
-        }
-        .testimonial-image {
-            max-width: 100%;
-            height: auto;
+            gap: 20px;
+            padding: 20px;
+            background-color: var(--color-bg-white);
             border-radius: 12px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            flex: 1 1 300px; /* Make images flexible and responsive */
+            margin-bottom: 16px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease;
         }
-        .testimonial-images-container {
+        .for-whom-item:hover {
+            transform: translateX(10px);
+            background-color: var(--color-bg-light);
+        }
+        .for-whom-icon {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
             display: flex;
-            flex-wrap: wrap;
+            align-items: center;
             justify-content: center;
-            gap: 24px;
+            background-color: var(--color-bg-blue-light);
+            border-radius: 8px;
+            color: var(--color-primary-light);
         }
-        .testimonial-images-container img {
-            width: 100%;
-            height: auto;
-            border-radius: 12px;
-        }
-        @media (min-width: 768px) {
-            .testimonials-layout {
-                flex-direction: row;
-                justify-content: space-around;
-                align-items: center;
-            }
+        .for-whom-text {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--color-text);
         }
 
-        /* --- FAQ Section (Accordion) --- */
+        /* --- Secção FAQ --- */
         .accordion-item { border-bottom: 1px solid #e5e7eb; }
         .accordion-button { display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 24px 0; font-size: 1.125rem; font-weight: 600; text-align: left; background: none; border: none; cursor: pointer; color: var(--color-primary-light); }
         .accordion-icon { transition: transform 0.3s; }
@@ -247,7 +263,7 @@
         .accordion-content.is-active { max-height: 200px; padding: 0 0 24px 0; }
         .accordion-button[aria-expanded="true"] .accordion-icon { transform: rotate(180deg); }
 
-        /* --- Final CTA with Background Animation --- */
+        /* --- Final CTA --- */
         .final-cta { 
             position: relative; 
             overflow: hidden; 
@@ -259,16 +275,14 @@
         .final-cta-content { display: flex; flex-direction: column; align-items: center; gap: 48px; position: relative; z-index: 1; text-align: center; }
         .final-cta-text { max-width: 600px; }
         .final-cta-text h2 { color: var(--color-primary); margin-bottom: 24px; }
-        .final-cta-image { max-width: 250px; }
         @media (min-width: 768px) {
             .final-cta-content { flex-direction: row; text-align: left; justify-content: space-between; }
             .final-cta-text { flex: 1; }
-            /* Making the final CTA image the same width as the hero image (50% of the container) */
             .final-cta-image-container { flex: 1; max-width: 50%; display: block; }
-            .final-cta-image-container img { max-width: 100%; height: auto; }
+            .final-cta-image-container img { max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
         }
 
-        /* --- Footer --- */
+        /* --- Rodapé --- */
         .footer { padding: 48px 0; text-align: center; font-size: 0.875rem; color: var(--color-text-light); border-top: 1px solid #e5e7eb; }
         .social-links { margin-top: 16px; display: flex; justify-content: center; gap: 24px; }
         .social-link { color: var(--color-primary-light); text-decoration: none; }
@@ -276,7 +290,7 @@
 </head>
 <body>
 
-    <!-- 0. Navigation Bar -->
+    <!-- 0. Barra de Navegação -->
     <header id="navbar" class="navbar">
         <div class="container navbar-content">
             <a href="#" class="nav-logo">Patinha Saudável</a>
@@ -284,103 +298,135 @@
                 <a href="#o-problema" class="nav-link">O Problema</a>
                 <a href="#o-metodo" class="nav-link">O Método</a>
                 <a href="#o-que-voce-recebe" class="nav-link">O Que Você Recebe</a>
-                <a href="#resultados-esperados" class="nav-link">Resultados Esperados</a>
+                <a href="#para-quem-e" class="nav-link">Para Quem É</a>
                 <a href="#oferta-especial" class="nav-link">Oferta Especial</a>
             </nav>
-            <a href="https://calendly.com/kelirosa/30min" class="btn btn-primary">Agendar Chamada</a>
+            <a href="https://calendly.com/kelirosa/30min" class="btn btn-primary">Receba Diagnóstico Gratuito</a>
         </div>
     </header>
 
     <main>
-        <!-- 1. Hero Section -->
+        <!-- 1. Secção Hero -->
         <section class="hero">
             <div class="container hero-content">
                 <div class="hero-text hero-animation">
-                    <h1 class="hero-headline">Faço clínicas veterinárias aumentarem o faturamento com o método Patinha Saudável</h1>
+                    <h1 class="hero-headline">Você cuida da saúde dos pets. <br> Nós cuidamos do crescimento da sua clínica.</h1>
                     <p class="hero-subheadline">
                         A Campanha Patinha Saudável é um evento presencial de vacinação e prevenção, feito sob medida para clínicas veterinárias que querem aumentar faturamento, atrair tutores e fidelizar pacientes — sem complicação.
                     </p>
                     <div class="hero-buttons">
-                        <a href="#oferta-especial" class="btn btn-primary">🔹 Quero minha clínica na Campanha Patinha Saudável</a>
+                        <a href="https://calendly.com/kelirosa/30min" class="btn btn-primary">🔹 Fale Com Um Especialista Agora</a>
                         <a href="https://calendly.com/kelirosa/30min" class="btn btn-secondary">Agendar Chamada</a>
                     </div>
                 </div>
                 <div class="hero-image-container hero-animation" style="animation-delay: 0.2s;">
-                    <!-- A clean, professional hero shot of a veterinarian with a dog -->
-                    <img src="https://raw.githubusercontent.com/jcfgodinho/patinha-saudavel/3e545fa76300a74ba616f5587d953728430d8519/Patinha%201.jpeg" alt="Patinha Saudável Hero" class="hero-image">
+                    <img src="https://raw.githubusercontent.com/jcfgodinho/patinha-saudavel/3e545fa76300a74ba616f5587d953728430d8519/Patinha%201.jpeg" alt="Veterinária sorridente com um cachorro" class="hero-image">
                 </div>
             </div>
         </section>
         
-        <!-- NEW SECTION - O Problema -->
+        <!-- 2. Secção O Problema -->
         <section id="o-problema" class="container section-padding fade-in problem-section">
             <h2>O Problema</h2>
             <p>Seu consultório depende apenas de consultas pontuais?</p>
-            <p>Sua equipe não está engajada para vender campanhas de prevenção?</p>
+            <p>Você acha que seu atendimento vale mais do que você cobra?</p>
+            <p>Suas postagens nas redes sociais não trazem resultados/clientes?</p>
+            <p>Já investiu em marketing e não obteve resultados?</p>
             <p>Você não tem tempo para planejar e executar eventos de marketing?</p>
-            <p class="highlight">👉 Se respondeu “sim” para alguma dessas perguntas, a Campanha Patinha Saudável é para você.</p>
+            <p class="highlight">👉 Se respondeu “sim” para alguma dessas perguntas, o Método Patinha Saudável é para você.</p>
         </section>
 
-        <!-- NEW SECTION - A Solução (O MÉTODO) -->
+        <!-- 3. Secção O Método -->
         <section id="o-metodo" class="container section-padding fade-in solution-section">
             <h2>O Método</h2>
-            <p class="mb-4">**De clínica comum para clínica lucrativa com os 4 Pilares do Método Patinha Saudável**</p>
+            <p class="mb-4"><strong>De clínica comum para clínica lucrativa com os 4 Pilares do Método Patinha Saudável</strong></p>
             <div class="solution-grid">
                 <div class="solution-card">
                     <h3>Diagnóstico e Planejamento</h3>
-                    <p>Anamnese da Clínica e planejamento para aumentar o faturamento e a previsibilidade. Suporte para Análise SWOT da Clínica: diagnóstico detalhado dos pontos fortes, fracos, oportunidades e ameaças para orientar as ações estratégicas.</p>
+                    <p>Anamnese da Clínica e planejamento para aumentar o faturamento e a previsibilidade. Diagnóstico detalhado dos pontos fortes, fracos, oportunidades e ameaças para orientar as ações estratégicas.</p>
                 </div>
                 <div class="solution-card">
                     <h3>Posicionamento da marca</h3>
-                    <p>Melhorar o posicionamento da clínica para alcançar as primeiras posições na pesquisa do Google Maps. Obter maior engajamento e reconhecimento para aumentar autoridade no Instagram.</p>
+                    <p>Estratégias para a clínica alcançar as primeiras posições na pesquisa do Google Maps. Direcionamento para obter engajamento e reconhecimento nas redes sociais.</p>
                 </div>
                 <div class="solution-card">
-                    <h3>Campanhas Sazonais</h3>
-                    <p>Campanhas presenciais com tutores para aumentar a fidelidade e ter previsibilidade de faturamento.</p>
+                    <h3>Campanhas de Tráfego</h3>
+                    <p>Estratégias focadas em resultados no Meta Ads, Google Ads, Tik Tok Ads.</p>
                 </div>
                 <div class="solution-card">
                     <h3>Relacionamento Lucrativo</h3>
-                    <p>Treinamento da equipe, reativação da base de tutores, atração de novos clientes, melhorar a satisfação dos clientes. para aumento de faturamento.</p>
+                    <p>Reativação da base de clientes, atração de novos clientes, Estratégias para aumento de Ticket Médio, soluções com Inteligência Artificial.</p>
                 </div>
             </div>
         </section>
 
-        <!-- 3. Features Section -->
+        <!-- 4. Secção O Que Você Recebe -->
         <section id="o-que-voce-recebe" class="container section-padding">
             <h2>O que Você Recebe</h2>
             <div class="features-grid fade-in">
-                <div class="feature-main fade-in" style="grid-column: 1 / -1;">
-                    <h3>Consultoria estratégica para sua clínica</h3>
-                    <p>Um plano de ação detalhado e personalizado para maximizar o sucesso da sua campanha, desde o planejamento inicial até o pós-evento.</p>
+                <!-- 1. Estratégias de marketing -->
+                <div class="feature-box fade-in">
+                    <div class="feature-icon-wrapper">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/><path d="m9 11 3 3 3-3"/></svg>
+                    </div>
+                    <h3>Estratégias de marketing</h3>
                 </div>
-                <div class="feature-card fade-in">
-                    <h3>Templates de artes + mensagens prontas</h3>
-                    <p>Materiais de marketing profissionais e prontos para uso em redes sociais e WhatsApp para atrair tutores de forma eficaz.</p>
+                <!-- 2. Campanha de Anúncios -->
+                <div class="feature-box fade-in">
+                    <div class="feature-icon-wrapper">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 13v-2z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
+                    </div>
+                    <h3>Campanha de Anúncios</h3>
                 </div>
-                <div class="feature-card fade-in">
-                    <h3>Planejamento completo (cronograma + checklist)</h3>
-                    <p>Tudo o que você precisa fazer, passo a passo, para garantir que o evento seja um sucesso, sem esquecer de nenhum detalhe.</p>
+                <!-- 3. Gestão do Google Meu Negócio -->
+                <div class="feature-box fade-in">
+                    <div class="feature-icon-wrapper">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </div>
+                    <h3>Gestão do Google Meu Negócio</h3>
                 </div>
-                <div class="feature-card fade-in">
-                    <h3>Treinamento da equipe e Secretária JornadaVet</h3>
-                    <p>Capacitação completa para sua equipe, focada em organização e atendimento, para que todos estejam alinhados com os objetivos da campanha.</p>
+                <!-- 4. Direcionamento de Redes Sociais -->
+                <div class="feature-box fade-in">
+                    <div class="feature-icon-wrapper">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                    </div>
+                    <h3>Direcionamento de Redes Sociais focadas em resultados</h3>
                 </div>
-                <div class="feature-card fade-in">
-                    <h3>Suporte via grupo exclusivo (WhatsApp)</h3>
-                    <p>Apoio contínuo e em tempo real para tirar dúvidas e resolver qualquer questão que surja durante o processo.</p>
+                <!-- 5. Landing Pages -->
+                <div class="feature-box fade-in">
+                    <div class="feature-icon-wrapper">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                    </div>
+                    <h3>Landing Pages (página de vendas)</h3>
                 </div>
-                <div class="feature-card fade-in">
-                    <h3>Reuniões mensais</h3>
-                    <p>Encontros para monitorar o progresso, ajustar a estratégia e garantir que a campanha esteja no caminho certo para o sucesso.</p>
+                <!-- 6. Criação de Site -->
+                <div class="feature-box fade-in">
+                    <div class="feature-icon-wrapper">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    </div>
+                    <h3>Criação de Site</h3>
                 </div>
-                <div class="feature-card fade-in">
-                    <h3>Pós-venda para transformar participantes em clientes recorrentes</h3>
-                    <p>Estratégias de follow-up para converter os tutores que participaram do evento em clientes fiéis da sua clínica.</p>
+                <!-- 7. Agentes de IA -->
+                <div class="feature-box fade-in">
+                    <div class="feature-icon-wrapper">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+                    </div>
+                    <h3>Agentes de IA para atendimento</h3>
                 </div>
+                <!-- 8. Criação de Marca -->
+                <div class="feature-box fade-in">
+                    <div class="feature-icon-wrapper">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.5 1.5"/><path d="M7.14 12.63L5.87 18.13"/></svg>
+                    </div>
+                    <h3>Criação de Marca</h3>
+                </div>
+            </div>
+            <div class="section-cta-container fade-in">
+                <a href="https://calendly.com/kelirosa/30min" class="btn btn-primary">Fale Com Um Especialista Agora</a>
             </div>
         </section>
 
-        <!-- 4. "Why Choose" Section -->
+        <!-- 5. Secção Resultados Esperados -->
         <section id="resultados-esperados" class="container section-padding" style="background-color: var(--color-bg-light);">
             <h2 class="fade-in">Por que escolher a Campanha Patinha Saudável?</h2>
             <div class="pillars-grid fade-in">
@@ -403,80 +449,126 @@
             </div>
         </section>
 
-        <!-- 5. Testimonials Section -->
-        <section class="container section-padding">
-            <h2 class="fade-in">Nossas Clínicas Parceiras</h2>
-            <div class="testimonials-layout fade-in">
-                <div class="testimonial-images-container" style="display: flex; gap: 24px; justify-content: center; flex-wrap: wrap;">
-                    <img src="https://raw.githubusercontent.com/jcfgodinho/patinha-saudavel/8cc4c8cbab2669c6093fe51f29e18d095debcf54/depoimento%201.png" alt="Depoimento de cliente 1" class="testimonial-image" style="max-width: 48%; height: auto; border-radius: 12px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
-                    <img src="https://raw.githubusercontent.com/jcfgodinho/patinha-saudavel/6179db59291cf935ea832def5a4c822dd1f8c0f6/depoimento%203.png" alt="Depoimento de cliente 3" class="testimonial-image" style="max-width: 48%; height: auto; border-radius: 12px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
-                </div>
-            </div>
+        <!-- 6. Secção Para Quem É -->
+        <section id="para-quem-e" class="container section-padding">
+            <h2 class="fade-in">O Método Patinha Saudável é para você que:</h2>
+            <ul class="for-whom-list fade-in">
+                <li class="for-whom-item">
+                    <div class="for-whom-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20v-6M6 20V10M18 20V4"/></svg>
+                    </div>
+                    <span class="for-whom-text">Deseja aumentar o faturamento da clínica/hospital.</span>
+                </li>
+                <li class="for-whom-item">
+                    <div class="for-whom-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <span class="for-whom-text">Quer atrair novos clientes e vender mais serviços para os que já são clientes.</span>
+                </li>
+                <li class="for-whom-item">
+                    <div class="for-whom-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    </div>
+                    <span class="for-whom-text">Está frustrado com agências de marketing que não conhecem o mercado veterinário.</span>
+                </li>
+                <li class="for-whom-item">
+                    <div class="for-whom-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                    </div>
+                    <span class="for-whom-text">É proprietário ou gerencia clínica ou hospital veterinário.</span>
+                </li>
+                <li class="for-whom-item">
+                    <div class="for-whom-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+                    </div>
+                    <span class="for-whom-text">Quer ser líder de mercado na sua região.</span>
+                </li>
+                <li class="for-whom-item">
+                    <div class="for-whom-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                    </div>
+                    <span class="for-whom-text">Produz conteúdo nas redes sociais mas não vê resultado.</span>
+                </li>
+                <li class="for-whom-item">
+                    <div class="for-whom-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <span class="for-whom-text">Deseja ter uma marca mais forte e reconhecida.</span>
+                </li>
+            </ul>
         </section>
 
-        <!-- 6. FAQ Section -->
+        <!-- 7. Secção FAQ -->
         <section class="container section-padding">
             <h2 class="fade-in">Perguntas Frequentes</h2>
             <div class="accordion-container fade-in">
                 <div class="accordion-item">
                     <button class="accordion-button" aria-expanded="false" aria-controls="faq1">
-                        Preciso comprar vacinas para a campanha?
-                        <svg class="accordion-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
-                    </button>
-                    <div id="faq1" class="accordion-content">
-                        <p>Não. O foco é estruturar o evento e engajar a equipe. As vacinas serão compradas após a confirmação de compra dos tutores.</p>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <button class="accordion-button" aria-expanded="false" aria-controls="faq2">
                         As campanhas seguem normas do CFMV?
                         <svg class="accordion-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
                     </button>
-                    <div id="faq2" class="accordion-content">
+                    <div id="faq1" class="accordion-content">
                         <p>Sim. Toda a comunicação e materiais são planejados dentro das normas do CFMV para garantir segurança e credibilidade.</p>
                     </div>
                 </div>
                 <div class="accordion-item">
+                    <button class="accordion-button" aria-expanded="false" aria-controls="faq2">
+                        Em quanto tempo terei retorno financeiro?
+                        <svg class="accordion-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+                    </button>
+                    <div id="faq2" class="accordion-content">
+                        <p>Nossos clientes começam a ver os resultados já no primeiro mês e eles vão aumentando com o tempo.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
                     <button class="accordion-button" aria-expanded="false" aria-controls="faq3">
-                        Em quanto tempo recebo retorno financeiro?
+                        E se minha equipe não tiver experiência em vendas?
                         <svg class="accordion-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
                     </button>
                     <div id="faq3" class="accordion-content">
-                        <p>O modelo foi desenhado para possibilitar faturar em até 3 dias o equivalente a um mês de receita. Os resultados podem variar conforme a execução.</p>
+                        <p>Oferecemos suporte prático e roteiros prontos. Além disso, a Secretária JornadaVet ajuda a organizar atendimento e comunicação.</p>
                     </div>
                 </div>
                 <div class="accordion-item">
                     <button class="accordion-button" aria-expanded="false" aria-controls="faq4">
-                        E se minha equipe não tiver experiência em vendas?
+                        Como faço para contratar?
                         <svg class="accordion-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
                     </button>
                     <div id="faq4" class="accordion-content">
-                        <p>Oferecemos suporte prático e roteiros prontos. Além disso, a Secretária JornadaVet ajuda a organizar atendimento e comunicação.</p>
+                        <p>Envie uma mensagem que entraremos em contato no seu WhatsApp para agendar uma reunião e entender quais são seus objetivos e desafios.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-button" aria-expanded="false" aria-controls="faq5">
+                        Como funciona?
+                        <svg class="accordion-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+                    </button>
+                    <div id="faq5" class="accordion-content">
+                        <p>O nosso serviço inclui todos os pilares do Método Patinha Saudável. O atendimento é constante, próximo e busca resolver os seus problemas de verdade.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 7. Final CTA -->
+        <!-- 8. Secção Final CTA -->
         <section id="oferta-especial" class="final-cta fade-in">
             <div class="container final-cta-content">
                 <div class="final-cta-text">
-                    <h2 class="hero-headline">Você cuida da saúde dos pets. Nós cuidamos do crescimento da sua clínica.</h2>
-                    <p class="hero-subheadline">Agende uma conversa e descubra como a Campanha Patinha Saudável pode revolucionar seu faturamento e a relação com seus pacientes.</p>
+                    <h2 class="hero-headline">Fazemos clínicas veterinárias aumentarem o faturamento com o método Patinha Saudável!</h2>
+                    <p class="hero-subheadline">Agende uma conversa e descubra como o <strong>Método Patinha Saudável</strong> pode revolucionar seu faturamento e a relação com seus pacientes.</p>
                     <div class="hero-buttons">
                         <a href="https://calendly.com/kelirosa/30min" class="btn btn-primary">Agendar Chamada</a>
                     </div>
                 </div>
                 <div class="final-cta-image-container">
-                    <!-- A small app mockup showing a vet tech using a mobile device with vet app on screen -->
-                    <img src="https://raw.githubusercontent.com/jcfgodinho/patinha-saudavel/3e545fa76300a74ba616f5587d953728430d8519/Patinha%202.jpeg" alt="Small app mockup on a mobile phone" class="final-cta-image">
+                    <img src="https://raw.githubusercontent.com/jcfgodinho/patinha-saudavel/3e545fa76300a74ba616f5587d953728430d8519/Patinha%202.jpeg" alt="Mockup do aplicativo no celular" class="final-cta-image">
                 </div>
             </div>
         </section>
 
     </main>
 
-    <!-- 8. Footer -->
+    <!-- 9. Rodapé -->
     <footer class="footer">
         <div class="container">
             <p>Patinha Saudável © 2025</p>
@@ -501,10 +593,8 @@
                 heroContent.style.paddingTop = `${navbarHeight}px`;
 
                 if (windowWidth < 768) {
-                    heroImageContainer.style.display = 'block';
                     heroText.style.alignItems = 'center';
                 } else {
-                    heroImageContainer.style.display = 'block';
                     heroText.style.alignItems = 'flex-start';
                 }
             };
@@ -512,7 +602,7 @@
             adjustHeroLayout();
             window.addEventListener('resize', adjustHeroLayout);
 
-            // Smooth Scroll for Navigation
+            // Scroll Suave para Navegação
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
@@ -529,7 +619,7 @@
                 });
             });
 
-            // Fade-in on Scroll Animation
+            // Animação de Fade-in no Scroll
             const elements = document.querySelectorAll('.fade-in');
             const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
@@ -541,7 +631,7 @@
             }, { threshold: 0.1 });
             elements.forEach(el => observer.observe(el));
 
-            // FAQ Accordion
+            // Acordeão do FAQ
             const accordionButtons = document.querySelectorAll('.accordion-button');
             accordionButtons.forEach(button => {
                 button.addEventListener('click', () => {
